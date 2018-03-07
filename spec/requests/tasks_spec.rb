@@ -1,10 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe "Tasks", type: :request do
+describe "Tasks" do
   describe "GET /tasks" do
     it "display some task" do
+      @task = Task.create :task => 'go to the shop'
       visit tasks_path
-      page should have content 'go back to the shop'
+      page should have_content 'go to the shop'
     end
   end
 end
