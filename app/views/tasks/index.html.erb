@@ -2,6 +2,7 @@
 <h1>Task List</h1>
 
 <div class="container-fluid">
+    <h2>pending</h2>
     <ul class="list-group">
         <% for task in @pending_tasks %>
             <li class="list-group-item">
@@ -13,12 +14,13 @@
             
         <% end %>
     </ul>
+    <h2>completed</h2>
         <ul class="list-group">
         <% for task in @completed_tasks %>
             <li class="list-group-item">
                 <%= form_for task, method: :delete do |f| %>
                     <%= task.task %>
-                    <%= f.submit "completed" %>
+                    
                 <% end %>
             </li>
             
