@@ -16,4 +16,11 @@ feature "Tasks" do
       expect(page).to have_content 'go to work'
     end
   end
+  
+    describe "PUT /tasks" do
+      it "edits a task" do
+        visit task_path
+        click_link 'Edit'
+    end
+  end
 end
