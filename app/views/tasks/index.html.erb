@@ -7,31 +7,25 @@
                         <li class="list-group-item">
                             <%= form_for task, method: :delete do |f| %>
                                 <%= task.task %>
-                                <button type="button" class="btn btn-primary"><%= f.submit "Complete" %></button>
+                                <%= f.submit "Complete", :style => "border-radius: 0 !important", :class => "btn btn-primary" %>
                             <% end %>
                         </li>
                     <% end %>
-                    <div class="entry input-group col-xs-3">
+                </ul>
+                    <div class="input-group mb-3">
                         <div class="form-control">
-                            <span class="input-group-btn">   
                             <%= form_for Task.new do |f| %>
-                            <%= f.text_field :task, type:"text", placeholder:"Description" %>
-                            <%= f.submit "Add task", :class => "btn btn-success" %>
-                            </span>
+                            <%= f.text_field :task, :style => "padding:5px;float:left;width:350px", placeholder:"Description" %>
+                            <%= f.submit "Add task", :style => "border-radius: 0 !important", :class => "btn btn-success" %>
                         </div>
                     <% end %>
                     </div>
-                </ul>
-        </div>
+                   
+      </div>
     </div>
-          <!--      <div class="input-group">-->
-          <!--<input type="text" class="form-control" placeholder="Search for...">-->
-          <!--<span class="input-group-btn">-->
-          <!--  <button class="btn btn-secondary" type="button">Go!</button>-->
-          <!--</span>-->
     <div class=".col-lg-4">
         <div class='container'>
-            <h2>Completed tasks</h2>
+            <h1>Completed tasks</h1>
             <ul class="list-group">
                 <% for task in @completed_tasks %>
                     <li class="list-group-item">
@@ -39,7 +33,6 @@
                             <%= task.task %>
                         <% end %>
                     </li>
-                    
                 <% end %>
             </ul>
         </div>
