@@ -16,6 +16,7 @@ class TasksController < ApplicationController
   end
   
   def destroy
+    @completed_tasks = Task.order('created_at DESC')
     task = Task.find(params[:id])
     task.status = "completed"
     task.save

@@ -1,36 +1,51 @@
-
-<h1>Task List</h1>
-
-<div class="container-fluid">
-    <h2>pending</h2>
-    <ul class="list-group">
-        <% for task in @pending_tasks %>
-            <li class="list-group-item">
-                <%= form_for task, method: :delete do |f| %>
-                    <%= task.task %>
-                    <%= f.submit "completed" %>
-                <% end %>
-            </li>
-            
-        <% end %>
-    </ul>
-    <h2>completed</h2>
-        <ul class="list-group">
-        <% for task in @completed_tasks %>
-            <li class="list-group-item">
-                <%= form_for task, method: :delete do |f| %>
-                    <%= task.task %>
+<div class="container">
+    <h1>Task List</h1>
+    <div class=".col-lg-2"
+        <div class="container-fluid">
+                <ul class="list-group">
+                    <% for task in @pending_tasks %>
+                        <li class="list-group-item">
+                            <%= form_for task, method: :delete do |f| %>
+                                <%= task.task %>
+                                <button type="button" class="btn btn-primary"><%= f.submit "complete" %></button>
+                            <% end %>
+                        </li>
+                    <% end %>
+                    <div class="entry input-group col-xs-3">
+                        <div class="form-control">
+                        <span class="input-group-btn">   
+                        <%= form_for Task.new do |f| %>
+                        <%= f.text_field :task, placeholder: "Description" %>
+                            <button type="button" class="btn btn-success">
+                                <%= f.submit "Add task" %>
+                            </button>
+                        </span>
+                        </div>
+                    <% end %>
+                </ul>
+        </div>
+    </div>
+          <!--      <div class="input-group">-->
+          <!--<input type="text" class="form-control" placeholder="Search for...">-->
+          <!--<span class="input-group-btn">-->
+          <!--  <button class="btn btn-secondary" type="button">Go!</button>-->
+          <!--</span>-->
+    <div class=".col-lg-4">
+        <div class='container-fluid'>
+            <h2>completed tasks</h2>
+            <ul class="list-group">
+                <% for task in @completed_tasks %>
+                    <li class="list-group-item">
+                        <%= form_for task, method: :delete do |f| %>
+                            <%= task.task %>
+                        <% end %>
+                    </li>
                     
                 <% end %>
-            </li>
-            
-        <% end %>
-    </ul>
-
+            </ul>
+        </div>
+    </div>
 </div>
-<%= form_for Task.new do |f| %>
-    <%= f.label :task %>
-    <%= f.text_field :task %>
-    <%= f.submit %>
-<% end %>
+
+
 

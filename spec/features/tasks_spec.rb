@@ -11,7 +11,7 @@ feature "Tasks" do
     it "creates a new task" do
       visit tasks_path
       fill_in 'Task', :with => 'go to work'
-      click_button 'Create Task'
+      click_button 'Add Task'
       expect(current_path).to eq(tasks_path)
       expect(page).to have_content 'go to work'
     end
