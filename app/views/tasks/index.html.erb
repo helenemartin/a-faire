@@ -7,21 +7,20 @@
                         <li class="list-group-item">
                             <%= form_for task, method: :delete do |f| %>
                                 <%= task.task %>
-                                <button type="button" class="btn btn-primary"><%= f.submit "complete" %></button>
+                                <button type="button" class="btn btn-primary"><%= f.submit "Complete" %></button>
                             <% end %>
                         </li>
                     <% end %>
                     <div class="entry input-group col-xs-3">
                         <div class="form-control">
-                        <span class="input-group-btn">   
-                        <%= form_for Task.new do |f| %>
-                        <%= f.text_field :task, placeholder: "Description" %>
-                            <button type="button" class="btn btn-success">
-                                <%= f.submit "Add task" %>
-                            </button>
-                        </span>
+                            <span class="input-group-btn">   
+                            <%= form_for Task.new do |f| %>
+                            <%= f.text_field :task, type:"text", placeholder:"Description" %>
+                            <%= f.submit "Add task", :class => "btn btn-success" %>
+                            </span>
                         </div>
                     <% end %>
+                    </div>
                 </ul>
         </div>
     </div>
@@ -31,8 +30,8 @@
           <!--  <button class="btn btn-secondary" type="button">Go!</button>-->
           <!--</span>-->
     <div class=".col-lg-4">
-        <div class='container-fluid'>
-            <h2>completed tasks</h2>
+        <div class='container'>
+            <h2>Completed tasks</h2>
             <ul class="list-group">
                 <% for task in @completed_tasks %>
                     <li class="list-group-item">

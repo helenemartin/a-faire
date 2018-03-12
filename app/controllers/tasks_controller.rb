@@ -5,14 +5,10 @@ class TasksController < ApplicationController
   end
   
   def create
-    #Task.create task_params
-    
     attributes = task_params
     attributes[:status] = "pending"
     Task.create attributes
-    
-    
-    redirect_to :back
+    redirect_to :back, :notice => 'task added'
   end
   
   def destroy
