@@ -1,15 +1,19 @@
 class TasksController < ApplicationController
   def index
     @pending_tasks = Task.where(status: "pending")
-    @completed_tasks = Task.where(status: "completed")
-    
+    @completed_tasks = Task.where(status: "completed").order("created_at DESC")
   end
+  
   
   def create
     attributes = task_params
     attributes[:status] = "pending"
-    Task.create attributes
-    flash[:notice] = "Task successfully created"
+    task = Task.create attributes
+    if task.persisted?
+      flash[:notice] = "Task successfully created"
+    else
+      flash[:alert] = task.errors.full_messages
+    end
     redirect_to :back
   end
   

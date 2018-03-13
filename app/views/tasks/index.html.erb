@@ -1,41 +1,57 @@
 <div class="container">
-    <% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %></div>
-  <% end %>
-    <div class=".col-lg-5">
-        <div class="container-fluid">
-            <h1>Task List</h1>
-            <ul class="list-group">
-                <% for task in @pending_tasks %>
-                    <li class="list-group-item">
-                        <%= form_for task, method: :delete do |f| %>
-                            <%= task.task %>
-                            <%= f.submit "Complete", :style => "float:right",:class => "btn btn-primary" %>
-                        <% end %>
-                    </li>
-                <% end %>
-            </ul>
-            <div class="form-control">
-                <%= form_for Task.new do |f| %>
-                <%= f.text_field :task, :style => "padding:5px;float:left;width:650px", placeholder:"Description" %>
-                <%= f.submit "Add task", :style => "border-radius: 0 !important", :class => "btn btn-success" %>
-            </div>
-        <% end %>
-    </div>
-    <div class=".col-lg-4">
-        <div class='container-fluid'>
-            <h1>Completed tasks</h1>
-            <ul class="list-group">
-                <% for task in @completed_tasks %>
-                    <li class="list-group-item">
-                        <%= form_for task, method: :delete do |f| %>
-                            <%= task.task %>
-                        <% end %>
-                    </li>
-                <% end %>
-            </ul>
+    <div class="row"
+        <div class="col-lg-12">
+            <%if flash.alert %>
+                <div class="alert alert-danger">
+                    <% flash[:alert].each do |alert| %>
+                        <%= alert %>
+                    <% end %>   
+                </div>
+            <% end %>
+            <%if flash.notice %>
+                <div class="alert alert-success">
+                    <%= flash[:notice] %>
+                </div>
+            <% end %>
         </div>
     </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="container-fluid">
+                <h1>Task List</h1>
+                <ul class="list-group">
+                    <% for task in @pending_tasks %>
+                        <li class="list-group-item">
+                            <%= form_for task, method: :delete do |f| %>
+                                <%= task.task %>
+                                <%= f.submit "Complete", :style => "float:right",:class => "btn btn-primary" %>
+                            <% end %>
+                        </li>
+                    <% end %>
+                </ul>
+                    <div class="form-control">
+                        <%= form_for Task.new do |f| %>
+                        <%= f.text_field :task, :style => "padding:5px;float:left", placeholder:"Description" %>
+                        <%= f.submit "Add task", :style => "border-radius: 0 !important", :class => "btn btn-success" %>
+                    </div>
+            </div>
+            <% end %>
+        </div>
+        <div class="col-lg-6">
+            <div class='container-fluid'>
+                <h1>Completed tasks</h1>
+                <ul class="list-group">
+                    <% for task in @completed_tasks %>
+                        <li class="list-group-item">
+                            <%= form_for task, method: :delete do |f| %>
+                                <%= task.task %>
+                            <% end %>
+                        </li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+    </div>    
 </div>
 
 

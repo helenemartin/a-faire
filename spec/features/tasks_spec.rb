@@ -20,7 +20,9 @@ feature "Tasks" do
     describe "PUT /tasks" do
       it "edits a task" do
         visit task_path
-        click_link 'Edit'
+        expect(current_path).to eq(tasks_path)
+        expect(page).to have_content 'go to work'
+        click_button 'Complete'
     end
   end
 end
