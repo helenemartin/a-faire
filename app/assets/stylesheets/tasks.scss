@@ -2,13 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
-    
+ margin-top:50px;
 }
 
-.col-lg-2 {
-    float: right;
-}
-
-.task ul {
-    display: block;
+.notice {
+    margin: 0 auto;
+    width: 900px;
+    padding: 5px 0 5px 5px;
+    border-radius: 3px;
+    background-color:#d4eddc;
 }
