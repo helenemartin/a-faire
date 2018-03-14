@@ -10,7 +10,7 @@ class TasksController < ApplicationController
     attributes[:status] = "pending"
     task = Task.create attributes
     if task.persisted?
-      flash[:notice] = "Task successfully created"
+      flash[:notice] = "Task created"
     else
       flash[:alert] = task.errors.full_messages
     end
@@ -21,7 +21,7 @@ class TasksController < ApplicationController
     task = Task.find(params[:id])
     task.status = "completed"
     task.save
-    flash[:notice] = "Task successfully completed"
+    flash[:notice] = "Task completed"
     redirect_to tasks_path
   end
   

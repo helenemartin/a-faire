@@ -5,10 +5,16 @@ body {
  margin-top:50px;
 }
 
-.notice {
+.row {
+    width: 70%;
     margin: 0 auto;
-    width: 900px;
-    padding: 5px 0 5px 5px;
-    border-radius: 3px;
-    background-color:#d4eddc;
 }
+
+.alert.alert-danger {
+    width:1280px;
+}
+
+.alert.alert-success {
+    width:1280px;
+}
+   
