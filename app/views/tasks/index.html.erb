@@ -17,7 +17,7 @@
     </div>
     <div class="row">
         <div class="col-lg-6">
-            <div class="container-fluid">
+            <div class="container-fluid pending-tasks" >
                 <h1>Task List</h1>
                 <ul class="list-group">
                     <% for task in @pending_tasks %>
@@ -31,14 +31,14 @@
                 </ul>
                     <div class="form-control">
                         <%= form_for Task.new do |f| %>
-                        <%= f.text_field :task, :style => "width:70%;margin-left:5px;padding:5px;float:left", placeholder:"Description" %>
+                        <%= f.text_field :task, :style => "width:72%;margin-left:5px;padding:5px;float:left", placeholder:"Description" %>
                         <%= f.submit "Add task", :style => "border-radius: 0 !important", :class => "btn btn-success" %>
                     </div>
             </div>
             <% end %>
         </div>
         <div class="col-lg-6">
-            <div class='container-fluid'>
+            <div class='container-fluid completed-tasks'>
                 <h1>Completed tasks</h1>
                 <ul class="list-group">
                     <% for task in @completed_tasks %>
