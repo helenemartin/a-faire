@@ -25,9 +25,8 @@ feature "Tasks" do
         expect(within(".pending-tasks") do
           expect(first('.list-group-item')).to have_content 'my second task'
         end)
-        
+      end
     end
-  end
   
     describe "PUT /tasks" do
       it "edits a task" do
@@ -38,13 +37,13 @@ feature "Tasks" do
         completed_tasks = page.find(".completed-tasks")
         expect(completed_tasks).to have_content 'write emails'
         expect(page.find(".alert")).to have_content 'Task completed'
+      end
     end
-  end
-  describe "error messages" do
-    it "signals empty input" do
-      visit tasks_path
-      click_button "Add task"
-      expect(page.find(".alert")).to have_content "Task can't be blank"
+    describe "error messages" do
+      it "signals empty input" do
+        visit tasks_path
+        click_button "Add task"
+        expect(page.find(".alert")).to have_content "Task can't be blank"
+      end
     end
-  end
 end
